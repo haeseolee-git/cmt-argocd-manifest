@@ -1,3 +1,4 @@
+# overlays/dev/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
@@ -5,7 +6,7 @@ images:
   newName: 148761663673.dkr.ecr.ap-northeast-2.amazonaws.com/demo-frontend
   newTag: 4a4358d1
 resources:
-- ../../base
-patchesStrategicMerge:
-- front-deployment-patch.yaml
-- front-service-patch.yaml
+  - ../../base
+patches:
+  - front-deployment-patch.yaml
+  - front-service-patch.yaml
